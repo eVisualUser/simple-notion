@@ -101,6 +101,22 @@ pub enum DataType {
     Null(String),
 }
 
+impl DataType {
+    pub fn to_json(&self, property_name: &str) -> String {
+        match self {
+            DataType::Title(title) => {
+                let object = json::JsonValue::new_object();
+
+                format!("\"{}\": {}", property_name, object.dump())
+            }
+            DataType::Number(number) => {
+                format!("\"{}\": {{ \"{}\": {} }}", property_name, crate::non_magic::notion::NOTION_TYPE_NUMBER, number)
+            }
+            _ => String::new(),
+        }
+    }
+}
+
 pub struct NotionDataBase {
     content: Vec<Vec<DataBaseElement>>,
 }
