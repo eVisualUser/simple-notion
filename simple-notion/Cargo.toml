@@ -6,6 +6,7 @@ description = "Easy to use library to read-only Notion DataBase using the Notion
 keywords = ["notion", "api"]
 readme = "README.md"
 repository = "https://github.com/eVisualUser/simple-notion"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
