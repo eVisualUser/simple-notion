@@ -1,0 +1,17 @@
+[package]
+name = "simple-notion"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+curl = "0.4.44"
+json = "0.12.4"
+
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+
+chrono = "0.4.24"
+
+pro_csv = "0.1.1"
