@@ -228,7 +228,7 @@ impl NotionDataBase {
         let mut result = Vec::<Vec<DataType>>::new();
 
         let lines = self.get_line_list(&parser);
-        let columns = self.get_column_list(&parser);
+        let columns = self.get_column_list();
 
         for line in lines.iter() {
             let mut out = Vec::<DataType>::new();
