@@ -208,7 +208,7 @@ impl NotionDataBase {
     }
 
     /// Return the list of all the columns names as Vec<String>
-    pub fn get_column_list(&self, parser: &crate::parser::NotionResponseParser) -> Vec<String> {
+    pub fn get_column_list(&self) -> Vec<String> {
         let mut result = Vec::<String>::new();
 
         match self.content.first() {
