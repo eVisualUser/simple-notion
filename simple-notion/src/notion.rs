@@ -1,5 +1,5 @@
 #[derive(Default, Debug, Clone)]
-pub struct NorionURL {
+pub struct NotionURL {
     pub base: String,
     pub name: String,
     pub is_https: bool,
@@ -7,7 +7,7 @@ pub struct NorionURL {
     pub page_id: String,
 }
 
-impl NorionURL {
+impl NotionURL {
     pub fn new(url: &str) -> Self {
         
         let mut tmp = Self::default();

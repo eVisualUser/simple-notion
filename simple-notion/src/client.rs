@@ -1,12 +1,12 @@
 #[derive(Default, Debug, Clone)]
 pub struct NotionClient {
-    pub url: crate::notion::NorionURL,
+    pub url: crate::notion::NotionURL,
     pub token: String,
 }
 
 impl NotionClient {
     pub fn set_url(&mut self, url: &str) {
-        self.url = crate::notion::NorionURL::new(url);
+        self.url = crate::notion::NotionURL::new(url);
     }
     
     pub fn set_token(&mut self, token: &str) {
