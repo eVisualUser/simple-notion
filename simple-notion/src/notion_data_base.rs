@@ -222,4 +222,27 @@ impl NotionDataBase {
 
         result
     }
+
+    /// Return the full table parsed
+    pub fn get_all(&self, parser: &crate::parser::NotionResponseParser) -> Vec<Vec<DataType>> {
+        let mut result = Vec::<Vec<DataType>>::new();
+
+        let lines = self.get_line_list(&parser);
+        let columns = self.get_column_list(&parser);
+
+        for line in lines.iter() {
+            let mut out = Vec::<DataType>::new();
+            for column in columns.iter() {
+                match self.get(&parser, line, column) {
+                    Some(value) => {
+                        out.push(parser.parse_element(value.1));
+                    }
+                    None => (),
+                }
+            }
+            result.push(out);
+        }
+
+        result
+    }
 }

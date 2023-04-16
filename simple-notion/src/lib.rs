@@ -32,6 +32,7 @@ mod tests {
 
             println!("All lines: {:?}", data_table.get_line_list(&parser));
             println!("All columns: {:?}", data_table.get_column_list(&parser));
+            println!("All: {:?}", data_table.get_all(&parser));
 
             println!("Version of \"Launcher 1\": {:?}", version);
         }
