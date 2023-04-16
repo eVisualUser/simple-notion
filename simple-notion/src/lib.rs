@@ -5,8 +5,8 @@ pub mod notion_data_base;
 pub mod parser;
 
 mod tests {
-    #[tokio::test]
-    pub async fn test_async_reqwest() {
+    #[test]
+    pub fn test_async_reqwest() {
         let mut csv = pro_csv::CSV::default();
         csv.load_from_file("debug.csv");
         for mut line in csv.into_iter() {
@@ -22,7 +22,7 @@ mod tests {
             client.set_url(&url);
             client.set_token(&token);
 
-            let data_base = client.get_table().await.unwrap();
+            let data_base = client.get_table_sync().unwrap();
 
             let parser = crate::parser::NotionResponseParser::new(data_base);
             let data_table = crate::notion_data_base::NotionDataBase::new(parser.parse_table());

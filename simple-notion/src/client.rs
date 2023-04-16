@@ -38,7 +38,7 @@ impl NotionClient {
         }
     }
     
-    pub fn get_data_table_sync(&self) -> Result<String, String> {
+    pub fn get_table_sync(&self) -> Result<String, String> {
         tokio::runtime::Runtime::new().unwrap().block_on(self.get_table())
     }
 
