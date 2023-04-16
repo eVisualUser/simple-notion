@@ -150,7 +150,7 @@ impl NotionDataBase {
         self.get_at(line, self.get_column_count() - 1)
     }
     
-    // Get an element of the data base using line and column index
+    /// Get an element of the data base using line and column index
     pub fn get_at(&self, mut line: usize, mut column: usize) -> Option<DataBaseElement> {
         line = (self.get_line_count() as i32 - 1_i32 - line as i32) as usize;
         column = (self.get_column_count() as i32 - 1_i32 - column as i32) as usize;
