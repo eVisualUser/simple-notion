@@ -1,6 +1,6 @@
 [package]
 name = "simple-notion"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Easy to use library to read-only Notion DataBase using the NotionAPI"
 keywords = ["notion", "api"]
