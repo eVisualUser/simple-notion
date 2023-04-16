@@ -30,6 +30,8 @@ mod tests {
             let version =
                 parser.parse_element(data_table.get(&parser, "Launcher 1", "Version").unwrap().1);
 
+            println!("All lines: {:?}", data_table.get_line_list(&parser));
+
             println!("Version of \"Launcher 1\": {:?}", version);
         }
     }

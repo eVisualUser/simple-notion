@@ -104,7 +104,7 @@ pub enum DataType {
 impl DataType {
     pub fn to_json(&self, property_name: &str) -> String {
         match self {
-            DataType::Title(title) => {
+            DataType::Title(_title) => {
                 let object = json::JsonValue::new_object();
 
                 format!("\"{}\": {}", property_name, object.dump())
@@ -186,5 +186,24 @@ impl NotionDataBase {
             }
         }
         None
+    }
+
+    /// Return the list of all the titles content as Vec<String>
+    pub fn get_line_list(&self, parser: &crate::parser::NotionResponseParser) -> Vec<String> {
+        let mut result = Vec::<String>::new();
+
+        for table_line in self.content.iter() {
+            let mut name = String::new();
+            match parser.parse_element(table_line.last().unwrap().1.clone()) {
+                DataType::Title(title) => {
+                    name = title;
+                }
+                _ => (),
+            }
+
+            result.push(name);
+        }
+
+        result
     }
 }
